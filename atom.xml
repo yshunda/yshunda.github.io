@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yshunda.net/"/>
-  <updated>2017-09-24T12:16:25.596Z</updated>
+  <updated>2017-09-24T12:37:07.772Z</updated>
   <id>http://yshunda.net/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="http://yshunda.net/2017/09/23/test/"/>
     <id>http://yshunda.net/2017/09/23/test/</id>
     <published>2017-09-23T13:37:48.000Z</published>
-    <updated>2017-09-24T12:16:25.596Z</updated>
+    <updated>2017-09-24T12:37:07.772Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="Node-js是什么"><a href="#Node-js是什么" class="headerlink" title="Node,js是什么"></a>Node,js是什么</h4><hr><p>a.Node.js是一个采用C++语言编写而成的,一个后端的Javascript运行环境（支持的系统包括*nux、Windows）,它不是一个javascript应用.<br>b.Node.js采用了Google Chrome浏览器的V8引擎，性能很好，同时还提供了很多系统级的API，如文件操作、网络编程等.<br>c.Node.js的设计特点是以事件驱动为核心,采用异步编程的设计思想.也就是说我们使用过程中引入了了相应的模块以后,需要根据自己的业务逻辑注册相应的回调函数.这些回调函数都是异步执行的,这意味着虽然在代码结构中,这些函数看似是依次注册的,但是它们并不依赖自身出现的顺序,而是等待相应的事件触发.</p><hr><h4 id="Node-js发展简史"><a href="#Node-js发展简史" class="headerlink" title="Node.js发展简史"></a>Node.js发展简史</h4><hr><p>2009年2月，Ryan Dahl在博客上宣布准备基于V8创建一个轻量级的Web服务器并提供一套库。<br>2009年5月，Ryan Dahl在GitHub上发布了最初版本的部分Node.js包，随后几个月里，有人开始使用Node.js开发应用。<br>2009年11月和2010年4月，两届JSConf大会都安排了Node.js的讲座。<br>2010年年底，Node.js获得云计算服务商Joyent资助，创始人Ryan Dahl加入Joyent全职负责Node.js的发展。<br>2011年7月，Node.js在微软的支持下发布Windows版本。<br>2012年1月，达尔离开了Node.js项目，开发工作由他的同事以及npm创始人艾萨克·施吕特（Isaac Schlueter）继续主持。<br>2014年2月，蒂莫西·费里斯（Timothy J. Fontaine）接任项目主管。</p><hr>]]></content>
+    <content type="html"><![CDATA[<h4 id="Node-js是什么"><a href="#Node-js是什么" class="headerlink" title="Node,js是什么"></a>Node,js是什么</h4><p>a.Node.js是一个采用C++语言编写而成的,一个后端的Javascript运行环境（支持的系统包括*nux、Windows）,它不是一个javascript应用.<br>b.Node.js采用了Google Chrome浏览器的V8引擎，性能很好，同时还提供了很多系统级的API，如文件操作、网络编程(包括HTTP、DNS、NET、UDP、HTTPS、TLS等)等.<br>c.Node.js的设计特点是以事件驱动为核心,采用异步编程的设计思想.也就是说我们使用过程中引入了了相应的模块以后,需要根据自己的业务逻辑注册相应的回调函数.这些回调函数都是异步执行的,这意味着虽然在代码结构中,这些函数看似是依次注册的,但是它们并不依赖自身出现的顺序,而是等待相应的事件触发.</p><h4 id="Node-js发展简史"><a href="#Node-js发展简史" class="headerlink" title="Node.js发展简史"></a>Node.js发展简史</h4><p>2009年2月，Ryan Dahl在博客上宣布准备基于V8创建一个轻量级的Web服务器并提供一套库。<br>2009年5月，Ryan Dahl在GitHub上发布了最初版本的部分Node.js包，随后几个月里，有人开始使用Node.js开发应用。<br>2009年11月和2010年4月，两届JSConf大会都安排了Node.js的讲座。<br>2010年年底，Node.js获得云计算服务商Joyent资助，创始人Ryan Dahl加入Joyent全职负责Node.js的发展。<br>2011年7月，Node.js在微软的支持下发布Windows版本。<br>2012年1月，达尔离开了Node.js项目，开发工作由他的同事以及npm创始人艾萨克·施吕特（Isaac Schlueter）继续主持。<br>2014年2月，蒂莫西·费里斯（Timothy J. Fontaine）接任项目主管。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h4 id=&quot;Node-js是什么&quot;&gt;&lt;a href=&quot;#Node-js是什么&quot; class=&quot;headerlink&quot; title=&quot;Node,js是什么&quot;&gt;&lt;/a&gt;Node,js是什么&lt;/h4&gt;&lt;hr&gt;
-&lt;p&gt;a.Node.js是一个采用C++语言编写而成的,一个后端的Jav
+        &lt;h4 id=&quot;Node-js是什么&quot;&gt;&lt;a href=&quot;#Node-js是什么&quot; class=&quot;headerlink&quot; title=&quot;Node,js是什么&quot;&gt;&lt;/a&gt;Node,js是什么&lt;/h4&gt;&lt;p&gt;a.Node.js是一个采用C++语言编写而成的,一个后端的Javascri
       
     
     </summary>
