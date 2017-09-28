@@ -27,7 +27,7 @@
 <meta property="og:url" content="http://yshunda.net/2017/09/23/Node.js01/index.html">
 <meta property="og:site_name" content="大蓝鲸">
 <meta property="og:description" content="title: Node.js学习笔记(一)  date: 2017-09-23 21:37:48  descriptions: 写博客记录,也是一个知识沉淀的过程.你好你说的就分手手机的身份地方好私服放松放松绥芬河素合肥的随和哈哈就是毒防毒的说法      Node,js是什么a.Node.js是一个采用C++语言编写而成的,一个后端的Javascript运行环境（支持的系统包括*nux、W">
-<meta property="og:updated_time" content="2017-09-26T13:28:13.869Z">
+<meta property="og:updated_time" content="2017-09-28T04:34:14.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js学习笔记(一)">
 <meta name="twitter:description" content="title: Node.js学习笔记(一)  date: 2017-09-23 21:37:48  descriptions: 写博客记录,也是一个知识沉淀的过程.你好你说的就分手手机的身份地方好私服放松放松绥芬河素合肥的随和哈哈就是毒防毒的说法      Node,js是什么a.Node.js是一个采用C++语言编写而成的,一个后端的Javascript运行环境（支持的系统包括*nux、W">
@@ -110,7 +110,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -149,7 +149,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js是什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">Node,js是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js发展简史"><span class="post-toc-number">2.</span> <span class="post-toc-text">Node.js发展简史</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js开发对象类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">Node.js开发对象类型</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js是什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">Node,js是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js发展简史"><span class="post-toc-number">2.</span> <span class="post-toc-text">Node.js发展简史</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js开发对象类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">Node.js开发对象类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js核心模块"><span class="post-toc-number">4.</span> <span class="post-toc-text">Node.js核心模块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js全局对象"><span class="post-toc-number">5.</span> <span class="post-toc-text">Node.js全局对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js第三方对象"><span class="post-toc-number">6.</span> <span class="post-toc-text">Node.js第三方对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js核心模块之fs模块"><span class="post-toc-number">7.</span> <span class="post-toc-text">Node.js核心模块之fs模块</span></a></li></ol>
         </nav>
     </aside>
     
@@ -178,12 +178,39 @@
 <h4 id="Node-js是什么"><a href="#Node-js是什么" class="headerlink" title="Node,js是什么"></a>Node,js是什么</h4><p>a.Node.js是一个采用C++语言编写而成的,一个后端的Javascript运行环境（支持的系统包括*nux、Windows）,它不是一个javascript应用.<br>b.Node.js采用了Google Chrome浏览器的V8引擎，性能很好，同时还提供了很多系统级的API，如文件操作、网络编程(包括HTTP、DNS、NET、UDP、HTTPS、TLS等)等.<br>c.Node.js的设计特点是以事件驱动为核心,采用异步编程的设计思想.也就是说我们使用过程中引入了了相应的模块以后,需要根据自己的业务逻辑注册相应的回调函数.这些回调函数都是异步执行的,这意味着虽然在代码结构中,这些函数看似是依次注册的,但是它们并不依赖自身出现的顺序,而是等待相应的事件触发.</p>
 <h4 id="Node-js发展简史"><a href="#Node-js发展简史" class="headerlink" title="Node.js发展简史"></a>Node.js发展简史</h4><p>2009年2月，Ryan Dahl在博客上宣布准备基于V8创建一个轻量级的Web服务器并提供一套库。<br>2009年5月，Ryan Dahl在GitHub上发布了最初版本的部分Node.js包，随后几个月里，有人开始使用Node.js开发应用。<br>2009年11月和2010年4月，两届JSConf大会都安排了Node.js的讲座。<br>2010年年底，Node.js获得云计算服务商Joyent资助，创始人Ryan Dahl加入Joyent全职负责Node.js的发展。<br>2011年7月，Node.js在微软的支持下发布Windows版本。<br>2012年1月，达尔离开了Node.js项目，开发工作由他的同事以及npm创始人艾萨克·施吕特（Isaac Schlueter）继续主持。<br>2014年2月，蒂莫西·费里斯（Timothy J. Fontaine）接任项目主管。</p>
 <h4 id="Node-js开发对象类型"><a href="#Node-js开发对象类型" class="headerlink" title="Node.js开发对象类型"></a>Node.js开发对象类型</h4><ul>
-<li>核心对象</li>
+<li>核心模块</li>
 <li>全局对象</li>
-<li>第三方对象<ul>
-<li>自己写的</li>
-<li>npmJS官网上下载的</li>
+<li>第三方对象 ( 自己写的/ npmJS官网上下载的)<h4 id="Node-js核心模块"><a href="#Node-js核心模块" class="headerlink" title="Node.js核心模块"></a>Node.js核心模块</h4></li>
+<li>使用方法:”声明引入对象”   例如:引入文件操作对象<code>cosnt fs = require(&#39;fs&#39;)</code></li>
+<li>注意:所有的API都提供了同步和异步的两个版本，<ul>
+<li>同步会阻塞后续代码执行</li>
+<li>异步不会阻塞后续代码执行，nodejs官方建议我们更多的使用异步的<h4 id="Node-js全局对象"><a href="#Node-js全局对象" class="headerlink" title="Node.js全局对象"></a>Node.js全局对象</h4></li>
 </ul>
+</li>
+<li>setTimeout</li>
+<li>console 控制台</li>
+<li>process 代表当前启动Node程序的进程<ul>
+<li>process属性<ul>
+<li>argv 获取命令行的所有参数,默认是字符串形式,中间以空格分隔</li>
+<li>env  获取当前系统环境变量</li>
+</ul>
+</li>
+<li>process相关函数<ul>
+<li>process.pid 获取进程id</li>
+<li>process.kill  <h4 id="Node-js第三方对象"><a href="#Node-js第三方对象" class="headerlink" title="Node.js第三方对象"></a>Node.js第三方对象</h4></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>待定内容<h4 id="Node-js核心模块之fs模块"><a href="#Node-js核心模块之fs模块" class="headerlink" title="Node.js核心模块之fs模块"></a>Node.js核心模块之fs模块</h4><blockquote>
+<p>fs模块中提供了重命名（移动）文件或目录方法：fs.rename()，删除文件的方法：fs.unlink()，删除目录的方法：fs. rmdir()。这几个方法都有对应的同步版本方法：fs.renameSync()、fs.unlinkSync()和fs.rmdirSync()。fs模块中的所有方法，都更推荐使用其同步版本，因为在任务量较大时异步版本会造成进程阻塞。另外，同步版本的方法需要使用trytry进行异常捕获，在使用上没有异步方法便利。</p>
+</blockquote>
+</li>
+<li><p>######文件、目录的重命名（移动）：fs.rename() <code>fs.rename(oldPath, newPath, callback)</code><br>这是异步版本的方法，此方法可以用于文件重命名和移动文件位置，此方法也可用于目录的操作。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件或目录不存在、目标目录不存在等情况时会出现异常。<br>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fs.rename(&apos;./xxx.txt&apos;, &apos;/tmp/world&apos;, function (err) &#123;</div><div class="line">    if (err) throw err;</div><div class="line">    console.log(&apos;重命名完成&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>######文件的删除 fs.unlink() <code>fs.unlink(path,callback)</code><br>这是异步版本的方法,其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件不存在、操作的对象是目录等情况时会出现异常。<br>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fs.unlink(&apos;./itbilu.com.txt&apos;, function(err) &#123;</div><div class="line">    if (err) throw err;</div><div class="line">    console.log(&apos;文件删除成功&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -193,7 +220,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-09-26T13:28:13.869Z" itemprop="dateUpdated">2017-09-26 21:28:13</time>
+    Last updated: <time datetime="2017-09-28T04:34:14.376Z" itemprop="dateUpdated">2017-09-28 12:34:14</time>
 </span><br>
 
 
@@ -309,7 +336,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
