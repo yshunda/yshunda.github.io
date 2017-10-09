@@ -16,8 +16,6 @@
     <title>Node.js学习笔记(一) | 大蓝鲸 | 不积硅步.无以致千里</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
-    
     
     <meta name="keywords" content="Node.js">
     <meta name="description" content="title: Node.js学习笔记(一)  date: 2017-09-23 21:37:48  Node,js是什么a.Node.js是一个采用C++语言编写而成的,一个后端的Javascript运行环境（支持的系统包括*nux、Windows）,它不是一个javascript应用.b.Node.js采用了Google Chrome浏览器的V8引擎，性能很好，同时还提供了很多系统级的AP">
@@ -34,8 +32,8 @@
     
         <link rel="alternate" type="application/atom+xml" title="大蓝鲸" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -46,52 +44,24 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <aside id="menu"  >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+    <div class="brand-wrap" style="background-image:url(/)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.png">
+          <img src="/">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">大蓝鲸</h5>
-          <a href="mailto:zjingshequ@gmail.com" title="zjingshequ@gmail.com" class="mail">zjingshequ@gmail.com</a>
+          <a href="mailto:undefined" class="mail">
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                首页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-link"></i>
-                读我
-              </a>
-            </li>
         
       </ul>
     </div>
@@ -106,20 +76,6 @@
         </a>
         <div class="flex-col header-title ellipsis">Node.js学习笔记(一)</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
         
     </div>
 </header>
@@ -146,13 +102,6 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js是什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">Node,js是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js发展简史"><span class="post-toc-number">2.</span> <span class="post-toc-text">Node.js发展简史</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js开发对象类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">Node.js开发对象类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js核心模块"><span class="post-toc-number">4.</span> <span class="post-toc-text">Node.js核心模块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js全局对象"><span class="post-toc-number">5.</span> <span class="post-toc-text">Node.js全局对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js第三方对象"><span class="post-toc-number">6.</span> <span class="post-toc-text">Node.js第三方对象</span></a></li></ol>
-        </nav>
-    </aside>
-    
 <article id="post-Node.js_A"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -165,10 +114,6 @@
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
@@ -216,16 +161,12 @@
         <blockquote class="post-copyright">
     <div class="content">
         
-<span class="post-time">
-    最后更新时间：<time datetime="2017-10-09T08:02:11.744Z" itemprop="dateUpdated">2017-10-09 16:02:11</time>
-</span><br>
-
 
         
     </div>
     <footer>
         <a href="http://yshunda.github.io">
-            <img src="/img/avatar.png" alt="大蓝鲸">
+            <img src="/" alt="大蓝鲸">
             大蓝鲸
         </a>
     </footer>
@@ -240,67 +181,22 @@
 
 
             
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yshunda.github.io/2017/09/23/Node.js_A/&title=《Node.js学习笔记(一)》 — 大蓝鲸&pic=http://yshunda.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yshunda.github.io/2017/09/23/Node.js_A/&title=《Node.js学习笔记(一)》 — 大蓝鲸&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yshunda.github.io/2017/09/23/Node.js_A/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Node.js学习笔记(一)》 — 大蓝鲸&url=http://yshunda.github.io/2017/09/23/Node.js_A/&via=http://yshunda.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yshunda.github.io/2017/09/23/Node.js_A/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
 
 
         </div>
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
   
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2017/09/23/Node.js_B/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/23/Node.js_B/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Node.js学习笔记(二)</h4>
       </a>
     </div>
+  
+
   
 </nav>
 
@@ -330,28 +226,17 @@
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
         <p><span>大蓝鲸 &copy; 2017</span>
             <span>
-                
-                <a href="http://www.miitbeian.gov.cn/" target="_blank">鲁ICP备16004414号</a><br>
                 
                  Power by <a href="http://hexo.io/" target="_blank">Hexo</a>
             </span>
@@ -364,87 +249,19 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yshunda.github.io/2017/09/23/Node.js_A/&title=《Node.js学习笔记(一)》 — 大蓝鲸&pic=http://yshunda.github.io/img/avatar.png" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yshunda.github.io/2017/09/23/Node.js_A/&title=《Node.js学习笔记(一)》 — 大蓝鲸&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yshunda.github.io/2017/09/23/Node.js_A/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Node.js学习笔记(一)》 — 大蓝鲸&url=http://yshunda.github.io/2017/09/23/Node.js_A/&via=http://yshunda.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yshunda.github.io/2017/09/23/Node.js_A/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aS3KDMBAFwNz/0mTrDeQ9DU4VorVyGWzULKY0n5+feB0f6/Ob6zuv7zn7fParGxYGBsZjGcflSjaXPDj552vYHy8IAwPjBYw2LF7feQ07+4c2rGNgYGDkW187LCZbx8DAwJgwJqE5OfxhYGBgrCWxSRkuL9jljJtzcQwMjAcy8qr7/3/+Sn8DAwPjUYyjXGuJbl6MO5YWBgbG3oxJA3JyiLy3IYqBgbE3IwmFa2E0D9ZtyI7OrRgYGC9jtMlnMooxOVYuBlwMDIwtGG00a8NlPi5WNwAwMDC2ZuS8NjVtD5F5e6CAYWBgbMTItzh5T2uDFEXwxcDA2JTRpqNt4ppczV/Z6VUMDIytGe3MVfLItQGLtm1Qp7gYGBiPZay1DNcGJvKGQcvDwMDYm5Ef4/KD4NrraNNjDAyM9zDaA1xb0G/bn20LYXFmBAMD41GMdovfG7+YhGwMDIy9GZPUMR/huncgrMjFMTAwtmC0iWj+sLyc1z4xGg7DwMDYjjEBtKQ23c1nwDAwMN7ASBLUvJ2Q4PNRjyS1xsDAeANjkka222oxdfqKgYGxEeMoV5uIzhPdOv/GwMDYjjEJdnmSmb+CtdENDAyMNzDyIJuEy3n6muwBAwPjnYyiBF8WyNpvFtNgDAwMjDj4rhXpJgNqGBgYGPkj25JcXp6LGqsYGBgvYOTNgMnVxS5rcj8GBsbWjDY1rUPh4D+TZicGBsbWjF9KILJQrKl7zgAAAABJRU5ErkJggg==" alt="微信分享二维码">
-</div>
-
-
-
-
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
 
 
 </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/js/main.min.js?v=1.6.13"></script>
 
 
 
 
 
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
