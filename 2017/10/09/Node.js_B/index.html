@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>No title | 大蓝鲸 | 不积硅步.无以致千里</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Node.js核心模块之文件系统模块fs fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs模块的常用功能:   查询文件信息:fs.stat(path,callback)fs.stat()方法用于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://yshunda.net/2017/10/09/Node.js_B/index.html">
+<meta property="og:site_name" content="大蓝鲸">
+<meta property="og:description" content="Node.js核心模块之文件系统模块fs fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs模块的常用功能:   查询文件信息:fs.stat(path,callback)fs.stat()方法用于">
+<meta property="og:updated_time" content="2017-10-09T07:52:17.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="Node.js核心模块之文件系统模块fs fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs模块的常用功能:   查询文件信息:fs.stat(path,callback)fs.stat()方法用于">
+    
+        <link rel="alternate" type="application/atom+xml" title="大蓝鲸" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">大蓝鲸</h5>
+          <a href="mailto:zjingshequ@gmail.com" title="zjingshequ@gmail.com" class="mail">zjingshequ@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yshunda" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">No title</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">No title</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-09T07:51:32.637Z" itemprop="datePublished" class="page-time">
+  2017-10-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Node-js核心模块之文件系统模块fs"><span class="post-toc-number">1.</span> <span class="post-toc-text">Node.js核心模块之文件系统模块fs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#查询文件信息-fs-stat-path-callback"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">查询文件信息:fs.stat(path,callback)</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#打开文件：fs-open-path-flags-mode-callback"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">打开文件：fs.open(path, flags[, mode], callback)</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">文件、目录的重命名(移动) ：fs.rename() fs.rename(oldPath, newPath, callback)</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#文件的删除-fs-unlink-fs-unlink-path-callback"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">文件的删除 fs.unlink() fs.unlink(path,callback)</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#目录的删除-fs-rmdir-fs-rmdir-paht-callback"><span class="post-toc-number">1.0.5.</span> <span class="post-toc-text">目录的删除 fs.rmdir() fs.rmdir(paht,callback)</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Node.js_B"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">No title</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-09 15:51:32" datetime="2017-10-09T07:51:32.637Z"  itemprop="datePublished">2017-10-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="Node-js核心模块之文件系统模块fs"><a href="#Node-js核心模块之文件系统模块fs" class="headerlink" title="Node.js核心模块之文件系统模块fs"></a>Node.js核心模块之文件系统模块fs</h4><blockquote>
+<p>fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs模块的常用功能:</p>
+</blockquote>
+<ul>
+<li><h6 id="查询文件信息-fs-stat-path-callback"><a href="#查询文件信息-fs-stat-path-callback" class="headerlink" title="查询文件信息:fs.stat(path,callback)"></a>查询文件信息:<code>fs.stat(path,callback)</code></h6>fs.stat()方法用于查询文件信息，可以用于查询文件的大小、创建时间、权限等相关信息。fs.stat()是异步方法，还有一个同步方法fs.statSync(path)。示例如下：</li>
+</ul>
+<pre><code>var fs = require(&apos;fs&apos;);
+fs.stat(&apos;test.js&apos;, function (err, stats) {
+    console.log(stats);
+})
+</code></pre><p>返回结果如下:</p>
+<pre><code>{ dev: 16777220,
+mode: 33188,
+nlink: 1,
+uid: 501,
+gid: 20,
+rdev: 0,
+blksize: 4096,
+ino: 78808297,
+size: 244,
+blocks: 8,
+atime: Wed May 27 2015 18:24:43 GMT+0800 (CST),
+mtime: Wed May 27 2015 18:26:25 GMT+0800 (CST),
+ctime: Wed May 27 2015 18:26:25 GMT+0800 (CST) }
+</code></pre><p><code>fs.stat(path)</code>执行后，会将stats类的实例返回给其回调函数。可以通过<code>stats</code>类中的提供方法判断文件的相关属性。例如判断是否为文件：</p>
+<pre><code>var fs = require(&apos;fs&apos;);
+fs.stat(&apos;test.js&apos;, function (err, stats) {
+    console.log(stats.isFile());  //true
+})
+</code></pre><p><code>stats</code>类中的方法有：<br>    -stats.isFile() 如果是标准文件，返回true。是目录、套接字、符号连接、或设备等返回false<br>    -stats. isDirectory() 如果是目录，返回true<br>    -stats. isBlockDevice() 如果是块设备，返回true，大多数情况下类UNIX系统的块设备都位于/dev目录下<br>    -stats. isCharacterDevice() 如果是字符设备，返回true<br>    -stats. isSymbolicLink() 如果是符号连接，返回true。（fs.lstat()方法返回的stats对象才有此方法）<br>    -stats.isFIFO() 如果是FIFO，返回true。FIFO是UNIX中的一种特殊类型的命令管道<br>    -stats. isSocket() 如果是UNIX套接字，返回true</p>
+<ul>
+<li><h6 id="打开文件：fs-open-path-flags-mode-callback"><a href="#打开文件：fs-open-path-flags-mode-callback" class="headerlink" title="打开文件：fs.open(path, flags[, mode], callback)"></a>打开文件：<code>fs.open(path, flags[, mode], callback)</code></h6></li>
+</ul>
+<ul>
+<li><h6 id="文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback"><a href="#文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback" class="headerlink" title="文件、目录的重命名(移动) ：fs.rename() fs.rename(oldPath, newPath, callback)"></a>文件、目录的重命名(移动) ：fs.rename() <code>fs.rename(oldPath, newPath, callback)</code></h6>这是异步版本的方法，此方法可以用于文件重命名和移动文件位置，此方法也可用于目录的操作。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件或目录不存在、目标目录不存在等情况时会出现异常。<br>示例:</li>
+</ul>
+<pre><code>fs.rename(&apos;./xxx.txt&apos;, &apos;/tmp/world&apos;, function (err) {
+    if (err) throw err;
+    console.log(&apos;重命名完成&apos;);
+})
+</code></pre><ul>
+<li><h6 id="文件的删除-fs-unlink-fs-unlink-path-callback"><a href="#文件的删除-fs-unlink-fs-unlink-path-callback" class="headerlink" title="文件的删除 fs.unlink() fs.unlink(path,callback)"></a>文件的删除 fs.unlink() <code>fs.unlink(path,callback)</code></h6>这是异步版本的方法,其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件不存在、操作的对象是目录等情况时会出现异常。<br>示例:</li>
+</ul>
+<pre><code>fs.unlink(&apos;./itbilu.com.txt&apos;, function(err) {
+    if (err) throw err;
+    console.log(&apos;文件删除成功&apos;);
+})
+</code></pre><ul>
+<li><h6 id="目录的删除-fs-rmdir-fs-rmdir-paht-callback"><a href="#目录的删除-fs-rmdir-fs-rmdir-paht-callback" class="headerlink" title="目录的删除 fs.rmdir() fs.rmdir(paht,callback)"></a>目录的删除 fs.rmdir() <code>fs.rmdir(paht,callback)</code></h6>fs.unlink()只能用于文件的删除，当需要删除目录时，需要使用fs.rmdir()方法。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的目录不存在、操作的对象是文件、操作目录非空等情况时会出现异常。<br>示例:</li>
+</ul>
+<pre><code>fs.rmdir(&apos;/tmp/itbaidu&apos;,function(err){
+    if(err) throw err;
+    console.log(&apos;目录删除成功&apos;);
+})
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最後更新時間：<time datetime="2017-10-09T07:52:17.562Z" itemprop="dateUpdated">2017-10-09 15:52:17</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/10/09/Node.js_B/" target="_blank" rel="external">http://yshunda.net/2017/10/09/Node.js_B/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yshunda.net">
+            <img src="/img/avatar.png" alt="大蓝鲸">
+            大蓝鲸
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yshunda.net/2017/10/09/Node.js_B/&title=《No title》 — 大蓝鲸&pic=http://yshunda.net/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yshunda.net/2017/10/09/Node.js_B/&title=《No title》 — 大蓝鲸&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yshunda.net/2017/10/09/Node.js_B/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — 大蓝鲸&url=http://yshunda.net/2017/10/09/Node.js_B/&via=http://yshunda.net" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yshunda.net/2017/10/09/Node.js_B/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/23/Node.js_A/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Node.js学习笔记(一)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>大蓝鲸 &copy; 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">鲁ICP备16004414号</a><br>
+                
+                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yshunda.net/2017/10/09/Node.js_B/&title=《No title》 — 大蓝鲸&pic=http://yshunda.net/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yshunda.net/2017/10/09/Node.js_B/&title=《No title》 — 大蓝鲸&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yshunda.net/2017/10/09/Node.js_B/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — 大蓝鲸&url=http://yshunda.net/2017/10/09/Node.js_B/&via=http://yshunda.net" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yshunda.net/2017/10/09/Node.js_B/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aQY6DMBAEQP7/aVbaKwvp8dgOK5VPkQOkyGHkafs44nH+juvMdVyvv/v2+sxpAxcXt809H8cdN5l/hj7P374SLi7uRu4zpfoaeREs/x24uLgv41aXOHd3Jc/HxcX9L9z+i+V34eLivoFbLUxJFJIkGwt7NVxc3Aa3Gpiu+Lww38XFxS1yz+LIy1D+2oVfx8XF3cJ9bleqGydjsWk1QsXFxV3NTcKOuYWp2hr9UcJwcXE3cqvxZRKSVmPTDzO4uLjbuWNHJfLoc6xN+lB3cXFxl3HL3dJQtJoviW7RuLi427nV0laNRcYap6O6bsLFxW1zq+FmvmSpHt9s7RLj4uIu4OaUPDzN58vFFBcXdwu3+qB+OJL/Tbi4uPu5/RKWb6aOHfnCxcXdz+1EEtW+auxARnQIAxcXdyq3WnryxVA100iCVFxc3J3c/tmGFYUPFxf3u9x85BsteUtTKIW4uLhbuJ2jEmMRavLM5FtcXNzV3E7x6kch+TwuLu5+biGeCK7JD2O1li+4uLgv4OYRSSdSmVbIcHFxN3I7W6rVRQ8uLu53uWOhZ1K8xhqqCbEILi5ugzur46ge4MDFxX0l9wfoUVeuRhkYiQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
