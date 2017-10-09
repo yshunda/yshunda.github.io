@@ -5,9 +5,9 @@
   <subtitle>不积硅步.无以致千里</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yshunda.net/"/>
-  <updated>2017-10-09T08:02:30.821Z</updated>
-  <id>http://yshunda.net/</id>
+  <link href="http://yshunda.github.io/"/>
+  <updated>2017-10-09T08:02:11.744Z</updated>
+  <id>http://yshunda.github.io/</id>
   
   <author>
     <name>大蓝鲸</name>
@@ -17,35 +17,9 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Node.js学习笔记(二)</title>
-    <link href="http://yshunda.net/2017/09/23/Node.js_B/"/>
-    <id>http://yshunda.net/2017/09/23/Node.js_B/</id>
-    <published>2017-09-23T13:37:48.000Z</published>
-    <updated>2017-10-09T08:02:30.821Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>  title: Node.js学习笔记(二)<br>  date: 2017-10-09 15:58:32</p></blockquote><h4 id="Node-js核心模块之文件系统模块fs"><a href="#Node-js核心模块之文件系统模块fs" class="headerlink" title="Node.js核心模块之文件系统模块fs"></a>Node.js核心模块之文件系统模块fs</h4><blockquote><p>fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs模块的常用功能:</p></blockquote><ul><li><h6 id="查询文件信息-fs-stat-path-callback"><a href="#查询文件信息-fs-stat-path-callback" class="headerlink" title="查询文件信息:fs.stat(path,callback)"></a>查询文件信息:<code>fs.stat(path,callback)</code></h6>fs.stat()方法用于查询文件信息，可以用于查询文件的大小、创建时间、权限等相关信息。fs.stat()是异步方法，还有一个同步方法fs.statSync(path)。示例如下：</li></ul><pre><code>var fs = require(&apos;fs&apos;);fs.stat(&apos;test.js&apos;, function (err, stats) {    console.log(stats);})</code></pre><p>返回结果如下:</p><pre><code>{ dev: 16777220,mode: 33188,nlink: 1,uid: 501,gid: 20,rdev: 0,blksize: 4096,ino: 78808297,size: 244,blocks: 8,atime: Wed May 27 2015 18:24:43 GMT+0800 (CST),mtime: Wed May 27 2015 18:26:25 GMT+0800 (CST),ctime: Wed May 27 2015 18:26:25 GMT+0800 (CST) }</code></pre><p><code>fs.stat(path)</code>执行后，会将stats类的实例返回给其回调函数。可以通过<code>stats</code>类中的提供方法判断文件的相关属性。例如判断是否为文件：</p><pre><code>var fs = require(&apos;fs&apos;);fs.stat(&apos;test.js&apos;, function (err, stats) {    console.log(stats.isFile());  //true})</code></pre><p><code>stats</code>类中的方法有：<br>    -stats.isFile() 如果是标准文件，返回true。是目录、套接字、符号连接、或设备等返回false<br>    -stats. isDirectory() 如果是目录，返回true<br>    -stats. isBlockDevice() 如果是块设备，返回true，大多数情况下类UNIX系统的块设备都位于/dev目录下<br>    -stats. isCharacterDevice() 如果是字符设备，返回true<br>    -stats. isSymbolicLink() 如果是符号连接，返回true。（fs.lstat()方法返回的stats对象才有此方法）<br>    -stats.isFIFO() 如果是FIFO，返回true。FIFO是UNIX中的一种特殊类型的命令管道<br>    -stats. isSocket() 如果是UNIX套接字，返回true</p><ul><li><h6 id="打开文件：fs-open-path-flags-mode-callback"><a href="#打开文件：fs-open-path-flags-mode-callback" class="headerlink" title="打开文件：fs.open(path, flags[, mode], callback)"></a>打开文件：<code>fs.open(path, flags[, mode], callback)</code></h6></li></ul><ul><li><h6 id="文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback"><a href="#文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback" class="headerlink" title="文件、目录的重命名(移动) ：fs.rename() fs.rename(oldPath, newPath, callback)"></a>文件、目录的重命名(移动) ：fs.rename() <code>fs.rename(oldPath, newPath, callback)</code></h6>这是异步版本的方法，此方法可以用于文件重命名和移动文件位置，此方法也可用于目录的操作。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件或目录不存在、目标目录不存在等情况时会出现异常。<br>示例:</li></ul><pre><code>fs.rename(&apos;./xxx.txt&apos;, &apos;/tmp/world&apos;, function (err) {    if (err) throw err;    console.log(&apos;重命名完成&apos;);})</code></pre><ul><li><h6 id="文件的删除-fs-unlink-fs-unlink-path-callback"><a href="#文件的删除-fs-unlink-fs-unlink-path-callback" class="headerlink" title="文件的删除 fs.unlink() fs.unlink(path,callback)"></a>文件的删除 fs.unlink() <code>fs.unlink(path,callback)</code></h6>这是异步版本的方法,其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件不存在、操作的对象是目录等情况时会出现异常。<br>示例:</li></ul><pre><code>fs.unlink(&apos;./itbilu.com.txt&apos;, function(err) {    if (err) throw err;    console.log(&apos;文件删除成功&apos;);})</code></pre><ul><li><h6 id="目录的删除-fs-rmdir-fs-rmdir-paht-callback"><a href="#目录的删除-fs-rmdir-fs-rmdir-paht-callback" class="headerlink" title="目录的删除 fs.rmdir() fs.rmdir(paht,callback)"></a>目录的删除 fs.rmdir() <code>fs.rmdir(paht,callback)</code></h6>fs.unlink()只能用于文件的删除，当需要删除目录时，需要使用fs.rmdir()方法。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的目录不存在、操作的对象是文件、操作目录非空等情况时会出现异常。<br>示例:</li></ul><pre><code>fs.rmdir(&apos;/tmp/itbaidu&apos;,function(err){    if(err) throw err;    console.log(&apos;目录删除成功&apos;);})</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;  title: Node.js学习笔记(二)&lt;br&gt;  date: 2017-10-09 15:58:32&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;Node-js核心模块之文件系统模块fs&quot;&gt;&lt;a href=&quot;#Node-js核心模块
-      
-    
-    </summary>
-    
-    
-      <category term="Node.js" scheme="http://yshunda.net/tags/Node-js/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Node.js学习笔记(一)</title>
-    <link href="http://yshunda.net/2017/09/23/Node.js_A/"/>
-    <id>http://yshunda.net/2017/09/23/Node.js_A/</id>
+    <link href="http://yshunda.github.io/2017/09/23/Node.js_A/"/>
+    <id>http://yshunda.github.io/2017/09/23/Node.js_A/</id>
     <published>2017-09-23T13:37:48.000Z</published>
     <updated>2017-10-09T08:02:11.744Z</updated>
     
@@ -64,7 +38,33 @@
     </summary>
     
     
-      <category term="Node.js" scheme="http://yshunda.net/tags/Node-js/"/>
+      <category term="Node.js" scheme="http://yshunda.github.io/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js学习笔记(二)</title>
+    <link href="http://yshunda.github.io/2017/09/23/Node.js_B/"/>
+    <id>http://yshunda.github.io/2017/09/23/Node.js_B/</id>
+    <published>2017-09-23T13:37:48.000Z</published>
+    <updated>2017-10-09T08:02:30.821Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>  title: Node.js学习笔记(二)<br>  date: 2017-10-09 15:58:32</p></blockquote><h4 id="Node-js核心模块之文件系统模块fs"><a href="#Node-js核心模块之文件系统模块fs" class="headerlink" title="Node.js核心模块之文件系统模块fs"></a>Node.js核心模块之文件系统模块fs</h4><blockquote><p>fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs模块的常用功能:</p></blockquote><ul><li><h6 id="查询文件信息-fs-stat-path-callback"><a href="#查询文件信息-fs-stat-path-callback" class="headerlink" title="查询文件信息:fs.stat(path,callback)"></a>查询文件信息:<code>fs.stat(path,callback)</code></h6>fs.stat()方法用于查询文件信息，可以用于查询文件的大小、创建时间、权限等相关信息。fs.stat()是异步方法，还有一个同步方法fs.statSync(path)。示例如下：</li></ul><pre><code>var fs = require(&apos;fs&apos;);fs.stat(&apos;test.js&apos;, function (err, stats) {    console.log(stats);})</code></pre><p>返回结果如下:</p><pre><code>{ dev: 16777220,mode: 33188,nlink: 1,uid: 501,gid: 20,rdev: 0,blksize: 4096,ino: 78808297,size: 244,blocks: 8,atime: Wed May 27 2015 18:24:43 GMT+0800 (CST),mtime: Wed May 27 2015 18:26:25 GMT+0800 (CST),ctime: Wed May 27 2015 18:26:25 GMT+0800 (CST) }</code></pre><p><code>fs.stat(path)</code>执行后，会将stats类的实例返回给其回调函数。可以通过<code>stats</code>类中的提供方法判断文件的相关属性。例如判断是否为文件：</p><pre><code>var fs = require(&apos;fs&apos;);fs.stat(&apos;test.js&apos;, function (err, stats) {    console.log(stats.isFile());  //true})</code></pre><p><code>stats</code>类中的方法有：<br>    -stats.isFile() 如果是标准文件，返回true。是目录、套接字、符号连接、或设备等返回false<br>    -stats. isDirectory() 如果是目录，返回true<br>    -stats. isBlockDevice() 如果是块设备，返回true，大多数情况下类UNIX系统的块设备都位于/dev目录下<br>    -stats. isCharacterDevice() 如果是字符设备，返回true<br>    -stats. isSymbolicLink() 如果是符号连接，返回true。（fs.lstat()方法返回的stats对象才有此方法）<br>    -stats.isFIFO() 如果是FIFO，返回true。FIFO是UNIX中的一种特殊类型的命令管道<br>    -stats. isSocket() 如果是UNIX套接字，返回true</p><ul><li><h6 id="打开文件：fs-open-path-flags-mode-callback"><a href="#打开文件：fs-open-path-flags-mode-callback" class="headerlink" title="打开文件：fs.open(path, flags[, mode], callback)"></a>打开文件：<code>fs.open(path, flags[, mode], callback)</code></h6></li></ul><ul><li><h6 id="文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback"><a href="#文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback" class="headerlink" title="文件、目录的重命名(移动) ：fs.rename() fs.rename(oldPath, newPath, callback)"></a>文件、目录的重命名(移动) ：fs.rename() <code>fs.rename(oldPath, newPath, callback)</code></h6>这是异步版本的方法，此方法可以用于文件重命名和移动文件位置，此方法也可用于目录的操作。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件或目录不存在、目标目录不存在等情况时会出现异常。<br>示例:</li></ul><pre><code>fs.rename(&apos;./xxx.txt&apos;, &apos;/tmp/world&apos;, function (err) {    if (err) throw err;    console.log(&apos;重命名完成&apos;);})</code></pre><ul><li><h6 id="文件的删除-fs-unlink-fs-unlink-path-callback"><a href="#文件的删除-fs-unlink-fs-unlink-path-callback" class="headerlink" title="文件的删除 fs.unlink() fs.unlink(path,callback)"></a>文件的删除 fs.unlink() <code>fs.unlink(path,callback)</code></h6>这是异步版本的方法,其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件不存在、操作的对象是目录等情况时会出现异常。<br>示例:</li></ul><pre><code>fs.unlink(&apos;./itbilu.com.txt&apos;, function(err) {    if (err) throw err;    console.log(&apos;文件删除成功&apos;);})</code></pre><ul><li><h6 id="目录的删除-fs-rmdir-fs-rmdir-paht-callback"><a href="#目录的删除-fs-rmdir-fs-rmdir-paht-callback" class="headerlink" title="目录的删除 fs.rmdir() fs.rmdir(paht,callback)"></a>目录的删除 fs.rmdir() <code>fs.rmdir(paht,callback)</code></h6>fs.unlink()只能用于文件的删除，当需要删除目录时，需要使用fs.rmdir()方法。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的目录不存在、操作的对象是文件、操作目录非空等情况时会出现异常。<br>示例:</li></ul><pre><code>fs.rmdir(&apos;/tmp/itbaidu&apos;,function(err){    if(err) throw err;    console.log(&apos;目录删除成功&apos;);})</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;  title: Node.js学习笔记(二)&lt;br&gt;  date: 2017-10-09 15:58:32&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;Node-js核心模块之文件系统模块fs&quot;&gt;&lt;a href=&quot;#Node-js核心模块
+      
+    
+    </summary>
+    
+    
+      <category term="Node.js" scheme="http://yshunda.github.io/tags/Node-js/"/>
     
   </entry>
   
