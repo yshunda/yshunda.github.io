@@ -16,6 +16,8 @@
     <title>Node.js学习笔记(二) | 大蓝鲸 | 不积硅步.无以致千里</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
     
     <meta name="keywords" content="Node.js">
     <meta name="description" content="title: Node.js学习笔记(二)  date: 2017-10-09 15:58:32  Node.js核心模块之文件系统模块fs fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs">
@@ -25,15 +27,15 @@
 <meta property="og:url" content="http://yshunda.github.io/2017/09/23/Node.js_B/index.html">
 <meta property="og:site_name" content="大蓝鲸">
 <meta property="og:description" content="title: Node.js学习笔记(二)  date: 2017-10-09 15:58:32  Node.js核心模块之文件系统模块fs fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs">
-<meta property="og:updated_time" content="2017-10-09T08:02:30.821Z">
+<meta property="og:updated_time" content="2017-10-09T13:27:24.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js学习笔记(二)">
 <meta name="twitter:description" content="title: Node.js学习笔记(二)  date: 2017-10-09 15:58:32  Node.js核心模块之文件系统模块fs fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs">
     
         <link rel="alternate" type="application/atom+xml" title="大蓝鲸" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -44,24 +46,52 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="/img/avatar.png">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">大蓝鲸</h5>
-          <a href="mailto:undefined" class="mail">
+          <a href="mailto:zjingshequ@gmail.com" title="zjingshequ@gmail.com" class="mail">zjingshequ@gmail.com</a>
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-link"></i>
+                读我
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -76,6 +106,20 @@
         </a>
         <div class="flex-col header-title ellipsis">Node.js学习笔记(二)</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -102,6 +146,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Node-js核心模块之文件系统模块fs"><span class="post-toc-number">1.</span> <span class="post-toc-text">Node.js核心模块之文件系统模块fs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查询文件信息-fs-stat-path-callback"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">查询文件信息:fs.stat(path,callback)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#打开文件：fs-open-path-flags-mode-callback"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">打开文件：fs.open(path, flags[, mode], callback)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#读取文件信息：fs-read-fd-buffer-offset-length-position-callback"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">读取文件信息：fs.read(fd, buffer, offset, length, position, callback)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#读取文件信息-另一种方式-fs-readFile-filename-options-callback"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">读取文件信息(另一种方式): fs.readFile(filename[, options], callback)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将数据写入文件fs-write"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">将数据写入文件fs.write()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将数据写入文件-另一种方式-fs-writeFile-filename-data-options-callback"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">将数据写入文件(另一种方式):fs.writeFile(filename, data[, options], callback)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">文件、目录的重命名(移动) ：fs.rename() fs.rename(oldPath, newPath, callback)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件的删除-fs-unlink-fs-unlink-path-callback"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">文件的删除 fs.unlink() fs.unlink(path,callback)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#目录的删除-fs-rmdir-fs-rmdir-paht-callback"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">目录的删除 fs.rmdir() fs.rmdir(paht,callback)</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-Node.js_B"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -114,17 +165,21 @@
 
 
             
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <blockquote>
 <p>  title: Node.js学习笔记(二)<br>  date: 2017-10-09 15:58:32</p>
 </blockquote>
-<h4 id="Node-js核心模块之文件系统模块fs"><a href="#Node-js核心模块之文件系统模块fs" class="headerlink" title="Node.js核心模块之文件系统模块fs"></a>Node.js核心模块之文件系统模块fs</h4><blockquote>
+<h3 id="Node-js核心模块之文件系统模块fs"><a href="#Node-js核心模块之文件系统模块fs" class="headerlink" title="Node.js核心模块之文件系统模块fs"></a>Node.js核心模块之文件系统模块fs</h3><blockquote>
 <p>fs（File System）是Node.js提供的对文件进行操作的模块，它提供了一组类似UNIX（POSIX）标准的文件操作API,这些模块中的方法均有异步和同步版本.利用fs模块,可以查询文件的统计信息/打开关闭文件/读写文件等.接下来介绍一些fs模块的常用功能:</p>
 </blockquote>
 <ul>
-<li><h6 id="查询文件信息-fs-stat-path-callback"><a href="#查询文件信息-fs-stat-path-callback" class="headerlink" title="查询文件信息:fs.stat(path,callback)"></a>查询文件信息:<code>fs.stat(path,callback)</code></h6>fs.stat()方法用于查询文件信息，可以用于查询文件的大小、创建时间、权限等相关信息。fs.stat()是异步方法，还有一个同步方法fs.statSync(path)。示例如下：</li>
+<li><h4 id="查询文件信息-fs-stat-path-callback"><a href="#查询文件信息-fs-stat-path-callback" class="headerlink" title="查询文件信息:fs.stat(path,callback)"></a>查询文件信息:<code>fs.stat(path,callback)</code></h4>fs.stat()方法用于查询文件信息，可以用于查询文件的大小、创建时间、权限等相关信息。fs.stat()是异步方法，还有一个同步方法fs.statSync(path)。示例如下：</li>
 </ul>
 <pre><code>var fs = require(&apos;fs&apos;);
 fs.stat(&apos;test.js&apos;, function (err, stats) {
@@ -149,26 +204,127 @@ ctime: Wed May 27 2015 18:26:25 GMT+0800 (CST) }
 fs.stat(&apos;test.js&apos;, function (err, stats) {
     console.log(stats.isFile());  //true
 })
-</code></pre><p><code>stats</code>类中的方法有：<br>    -stats.isFile() 如果是标准文件，返回true。是目录、套接字、符号连接、或设备等返回false<br>    -stats. isDirectory() 如果是目录，返回true<br>    -stats. isBlockDevice() 如果是块设备，返回true，大多数情况下类UNIX系统的块设备都位于/dev目录下<br>    -stats. isCharacterDevice() 如果是字符设备，返回true<br>    -stats. isSymbolicLink() 如果是符号连接，返回true。（fs.lstat()方法返回的stats对象才有此方法）<br>    -stats.isFIFO() 如果是FIFO，返回true。FIFO是UNIX中的一种特殊类型的命令管道<br>    -stats. isSocket() 如果是UNIX套接字，返回true</p>
+</code></pre><p><code>stats</code>类中的方法有：</p>
 <ul>
-<li><h6 id="打开文件：fs-open-path-flags-mode-callback"><a href="#打开文件：fs-open-path-flags-mode-callback" class="headerlink" title="打开文件：fs.open(path, flags[, mode], callback)"></a>打开文件：<code>fs.open(path, flags[, mode], callback)</code></h6></li>
+<li>stats.isFile() 如果是标准文件，返回true。是目录、套接字、符号连接、或设备等返回false</li>
+<li>stats. isDirectory() 如果是目录，返回true</li>
+<li>stats. isBlockDevice() 如果是块设备，返回true，大多数情况下类UNIX系统的块设备都位于/dev目录下</li>
+<li>stats. isCharacterDevice() 如果是字符设备，返回true</li>
+<li>stats. isSymbolicLink() 如果是符号连接，返回true。（fs.lstat()方法返回的stats对象才有此方法）</li>
+<li>stats.isFIFO() 如果是FIFO，返回true。FIFO是UNIX中的一种特殊类型的命令管道</li>
+<li>stats. isSocket() 如果是UNIX套接字，返回true</li>
 </ul>
 <ul>
-<li><h6 id="文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback"><a href="#文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback" class="headerlink" title="文件、目录的重命名(移动) ：fs.rename() fs.rename(oldPath, newPath, callback)"></a>文件、目录的重命名(移动) ：fs.rename() <code>fs.rename(oldPath, newPath, callback)</code></h6>这是异步版本的方法，此方法可以用于文件重命名和移动文件位置，此方法也可用于目录的操作。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件或目录不存在、目标目录不存在等情况时会出现异常。<br>示例:</li>
+<li><h4 id="打开文件：fs-open-path-flags-mode-callback"><a href="#打开文件：fs-open-path-flags-mode-callback" class="headerlink" title="打开文件：fs.open(path, flags[, mode], callback)"></a>打开文件：<code>fs.open(path, flags[, mode], callback)</code></h4>操作文件前需要选对文件进行打开操作。<code>fs.open()</code>方法用于打开文件，打开文件后，文件描述符<code>fs</code>会调用<code>open</code>方法的回调函数，然后就可以通过文件描述符fs对文件进行读写等操作了。同步版的方法名为<code>fs.openSync(path, flags[, mode])</code>。示例如下：</li>
+</ul>
+<pre><code>var fs = require(&apos;fs&apos;);
+fs.open(&apos;./test/path.js&apos;, &apos;r&apos;, function (err, fd) {
+    // 可以在这里通过文件描述fs对文件进行操作
+});
+</code></pre><p><code>fs.open()</code>方法第一个参数是文件路径。每二个参数是标志位，标志位表示文件的打开模式。标志含义与UNIX中fopen的标识位相同：</p>
+<ul>
+<li>r 打开文本文件进行读取，数据流位置在文件起始处</li>
+<li>r+ 打开文本文件进行读写，数据流位置在文件起始处</li>
+<li>w 如果文件存在，将其清零，不存在创建写入文件。数据流位置在文件起始处</li>
+<li>w+ 打开文件进行读写，如果文件存在，将其清零，不存在创建写入文件。数据流位置在文件起始处</li>
+<li>a 打开文件写入数据，如果文件存在，将其清零，不存在创建写入文件。数据流位置在文件结尾处，此后的写操作都将数据追加到文件后面</li>
+<li>a+ 打开文件进行文件读写，如果文件存在，将其清零，不存在创建写入文件。数据流位置在文件结尾处，此后的写操作都将数据追加到文件后面</li>
+</ul>
+<ul>
+<li><h4 id="读取文件信息：fs-read-fd-buffer-offset-length-position-callback"><a href="#读取文件信息：fs-read-fd-buffer-offset-length-position-callback" class="headerlink" title="读取文件信息：fs.read(fd, buffer, offset, length, position, callback)"></a>读取文件信息：<code>fs.read(fd, buffer, offset, length, position, callback)</code></h4>文件打开后，就可以使用<code>fs.read()</code>方法进行读取，在读取前需要一个文件描述符fd，创建文件描述符fd可以使用fs.open()方法.而后创建一个用于保存文件数据的缓冲区。缓冲区数据最终会被传递到回调函数中;<br>从文件描述符fd中读取文件数据。</li>
+</ul>
+<ul>
+<li><code>buffer</code>是一个缓冲区，读取的数据将会写入到这里。</li>
+<li><code>offset</code>是开始向缓冲区 <code>buffer</code> 写入数据时的偏移量。</li>
+<li><code>length</code>是一个整型值，指定了读取的字节数。</li>
+<li><code>position</code>是一个整型值，指读取的文件起始位置，如果<code>position</code>为<code>null</code>，将会从文件当前的位置读取数据。</li>
+<li><code>callback</code>中回调函数，其中包含了三个参数<code>(err, bytesRead, buffer)</code>，分别表示：错误、读取的字节数、缓冲区。<br><code>fs.read()</code>方法可以实现部分文件内容的读取。通过<code>length</code>和<code>position</code>参数可以指定读取文件内容的长度和读取内容的起始位置。示例如下：</li>
+</ul>
+<pre><code>var fs = require(&apos;fs&apos;);
+fs.open(&apos;./test/fs.js&apos;, &apos;r&apos;, function (err, fd) {
+    var readBuffer = new Buffer(1024),
+    offset = 0,
+    len = readBuffer.length,
+    filePostion = 100;
+    fs.read(fd, readBuffer, offset, len, filePostion, function(err, readByte){
+    console.log(&apos;读取数据总数：&apos;+readByte+&apos; bytes&apos; );        
+    // ==&gt;读取数据总数：239 bytes
+        console.log(readBuffer.slice(0, readByte));     //数据已被填充到readBuffer中
+    })
+});
+</code></pre><p>上面的代码，文件打开后，会从第100个字节开始，读取其后的1024个字节的数据。读取完成后，<code>fs.read()</code>会回调最后一个回调方法，然后就可以可以处理读取到的的缓冲的数据了。</p>
+<ul>
+<li><h4 id="读取文件信息-另一种方式-fs-readFile-filename-options-callback"><a href="#读取文件信息-另一种方式-fs-readFile-filename-options-callback" class="headerlink" title="读取文件信息(另一种方式): fs.readFile(filename[, options], callback)"></a>读取文件信息(另一种方式): <code>fs.readFile(filename[, options], callback)</code></h4>读取文件的全部内容:</li>
+</ul>
+<ul>
+<li><code>filename</code>要读取的文件。</li>
+<li><code>options</code>一个包含以下可选值的对象<ul>
+<li><code>encoding</code> {String | Null} 默认：<code>&#39;utf8&#39;</code></li>
+<li><code>mode</code> {Number} 默认：<code>438</code> (aka 0666 in Octal)</li>
+<li>flag {String} 默认：’w’</li>
+</ul>
+</li>
+<li>callback回调函数有2个参数 (err, data)，参数 data 是文件的内容。如果没有指定参数encoding, 则返回值为Buffer。<br>fs.readFile()方法能且只能读取文件的全部内容，通过设置编码方式可以以字符串或Buffer的形式返回读结果。</li>
+</ul>
+<ul>
+<li><h4 id="将数据写入文件fs-write"><a href="#将数据写入文件fs-write" class="headerlink" title="将数据写入文件fs.write()"></a>将数据写入文件<code>fs.write()</code></h4><code>fs.write()</code>有以下两种形式，可以将一个buffer或data字符串写入到文件描述符fd指定的文件中。同样的在写入之前需要一个文件描述符<code>fd</code>,创建文件描述符<code>fd</code>,可以使用<code>fs.open()</code>方法<br><code>fs.write(fd,buffer,offset,length[,position],callback)</code>参数如下:</li>
+</ul>
+<ul>
+<li>buffer是一个缓冲区，是要写入到文件的数据。</li>
+<li>offset用于确认buffer写入数据时的偏移量。</li>
+<li>length是一个整型值，指定写入数据的长度。</li>
+<li>通过offset和length可以确定buffer的哪个部分将会被写入文件。</li>
+<li>position是一个整型值，指写入文件的起始位置，如果position为typeof position !== ‘number’，将会从文件当前的位置写入数据。</li>
+<li>callback中回调函数，其中包含了三个参数(err, written, buffer)，分别表示：错误、写入文件的字节数、缓冲区。<br><code>fs.write(fd,data[,position[,encoding]],callback)</code> 参数如下:</li>
+<li>data要写入文件的字符串（当写入数据不是Buffer时，将会被转为字符串）。</li>
+<li>position是一个整型值，指写入文件的起始位置，如果position为typeof position !== ‘number’，将会从文件当前的位置写入数据。</li>
+<li>encoding指定写入字符串的编码方式。</li>
+<li>callback中回调函数，其中包含了三个参数(err, written, buffer)，分别表示：错误、写入文件的字节数、缓冲区。<br>提示：<code>fs.write()</code>在没有等待回调而多次操作同一个文件是不安全的。在这种情况下，强烈推荐使用<code>fs.createWriteStream()</code>方法。<br>文件打开后，可以通过 <code>fs.write()</code>方法传递一个数据缓冲区，以向打开的文件中写入数据。示例如下：</li>
+</ul>
+<pre><code>var fs = require(&apos;fs&apos;);
+
+fs.open(&apos;./fs.txt&apos;, &apos;a&apos;, function (err, fd) {
+    var writeBuffer = new Buffer(&apos;这是要写入的字符串&apos;),
+    offset = 0,
+    len = writeBuffer.length,
+    filePostion = null;
+
+    fs.write(fd, writeBuffer, offset, len, filePostion, function(err, readByte){
+    console.log(&apos;写数据总数：&apos;+readByte+&apos; bytes&apos; );        
+    // ==&gt;写数据总数：27 bytes
+    })
+})
+</code></pre><p>fs.writeSync()是fs.write()方法的同步版本。</p>
+<ul>
+<li><h4 id="将数据写入文件-另一种方式-fs-writeFile-filename-data-options-callback"><a href="#将数据写入文件-另一种方式-fs-writeFile-filename-data-options-callback" class="headerlink" title="将数据写入文件(另一种方式):fs.writeFile(filename, data[, options], callback)"></a>将数据写入文件(另一种方式):<code>fs.writeFile(filename, data[, options], callback)</code></h4>将一个buffer或字符串写入到指定的文件中，当文件已经存在时，文件内容将会被替换。</li>
+</ul>
+<ul>
+<li>filename要写入的文件。</li>
+<li>data要写入的文件的数据，可以是一个buffer或字符串。</li>
+<li>options一个包含以下可选值的对象<ul>
+<li>encoding {String | Null} ，写入数据的编码方式，默认：’utf8’。如果写入数据是buffer时，这个参数会被忽略。</li>
+<li>mode {Number} 默认：438 (aka 0666 in Octal)</li>
+<li>flag {String} 默认：’w’<br>当写入数据是字符串时，options参数可以是一个字符串，表示字符串编码方式，如：’utf8’。</li>
+</ul>
+</li>
+<li>callback回调函数有1个参数 (err)。err, 表示可能出现的错误。</li>
+</ul>
+<ul>
+<li><h4 id="文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback"><a href="#文件、目录的重命名-移动-：fs-rename-fs-rename-oldPath-newPath-callback" class="headerlink" title="文件、目录的重命名(移动) ：fs.rename() fs.rename(oldPath, newPath, callback)"></a>文件、目录的重命名(移动) ：fs.rename() <code>fs.rename(oldPath, newPath, callback)</code></h4>这是异步版本的方法，此方法可以用于文件重命名和移动文件位置，此方法也可用于目录的操作。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件或目录不存在、目标目录不存在等情况时会出现异常。<br>示例:</li>
 </ul>
 <pre><code>fs.rename(&apos;./xxx.txt&apos;, &apos;/tmp/world&apos;, function (err) {
     if (err) throw err;
     console.log(&apos;重命名完成&apos;);
 })
 </code></pre><ul>
-<li><h6 id="文件的删除-fs-unlink-fs-unlink-path-callback"><a href="#文件的删除-fs-unlink-fs-unlink-path-callback" class="headerlink" title="文件的删除 fs.unlink() fs.unlink(path,callback)"></a>文件的删除 fs.unlink() <code>fs.unlink(path,callback)</code></h6>这是异步版本的方法,其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件不存在、操作的对象是目录等情况时会出现异常。<br>示例:</li>
+<li><h4 id="文件的删除-fs-unlink-fs-unlink-path-callback"><a href="#文件的删除-fs-unlink-fs-unlink-path-callback" class="headerlink" title="文件的删除 fs.unlink() fs.unlink(path,callback)"></a>文件的删除 fs.unlink() <code>fs.unlink(path,callback)</code></h4>这是异步版本的方法,其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的文件不存在、操作的对象是目录等情况时会出现异常。<br>示例:</li>
 </ul>
 <pre><code>fs.unlink(&apos;./itbilu.com.txt&apos;, function(err) {
     if (err) throw err;
     console.log(&apos;文件删除成功&apos;);
 })
 </code></pre><ul>
-<li><h6 id="目录的删除-fs-rmdir-fs-rmdir-paht-callback"><a href="#目录的删除-fs-rmdir-fs-rmdir-paht-callback" class="headerlink" title="目录的删除 fs.rmdir() fs.rmdir(paht,callback)"></a>目录的删除 fs.rmdir() <code>fs.rmdir(paht,callback)</code></h6>fs.unlink()只能用于文件的删除，当需要删除目录时，需要使用fs.rmdir()方法。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的目录不存在、操作的对象是文件、操作目录非空等情况时会出现异常。<br>示例:</li>
+<li><h4 id="目录的删除-fs-rmdir-fs-rmdir-paht-callback"><a href="#目录的删除-fs-rmdir-fs-rmdir-paht-callback" class="headerlink" title="目录的删除 fs.rmdir() fs.rmdir(paht,callback)"></a>目录的删除 fs.rmdir() <code>fs.rmdir(paht,callback)</code></h4>fs.unlink()只能用于文件的删除，当需要删除目录时，需要使用fs.rmdir()方法。其回调函数中包含一个参数(err)，该参数用于捕获可能出现的异常，当操作的目录不存在、操作的对象是文件、操作目录非空等情况时会出现异常。<br>示例:</li>
 </ul>
 <pre><code>fs.rmdir(&apos;/tmp/itbaidu&apos;,function(err){
     if(err) throw err;
@@ -180,12 +336,16 @@ fs.stat(&apos;test.js&apos;, function (err, stats) {
         <blockquote class="post-copyright">
     <div class="content">
         
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-09T13:27:24.835Z" itemprop="dateUpdated">2017-10-09 21:27:24</time>
+</span><br>
+
 
         
     </div>
     <footer>
         <a href="http://yshunda.github.io">
-            <img src="/" alt="大蓝鲸">
+            <img src="/img/avatar.png" alt="大蓝鲸">
             大蓝鲸
         </a>
     </footer>
@@ -200,6 +360,51 @@ fs.stat(&apos;test.js&apos;, function (err, stats) {
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yshunda.github.io/2017/09/23/Node.js_B/&title=《Node.js学习笔记(二)》 — 大蓝鲸&pic=http://yshunda.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yshunda.github.io/2017/09/23/Node.js_B/&title=《Node.js学习笔记(二)》 — 大蓝鲸&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yshunda.github.io/2017/09/23/Node.js_B/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Node.js学习笔记(二)》 — 大蓝鲸&url=http://yshunda.github.io/2017/09/23/Node.js_B/&via=http://yshunda.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yshunda.github.io/2017/09/23/Node.js_B/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -245,17 +450,28 @@ fs.stat(&apos;test.js&apos;, function (err, stats) {
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
         <p><span>大蓝鲸 &copy; 2017</span>
             <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">鲁ICP备16004414号</a><br>
                 
                  Power by <a href="http://hexo.io/" target="_blank">Hexo</a>
             </span>
@@ -268,19 +484,87 @@ fs.stat(&apos;test.js&apos;, function (err, stats) {
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yshunda.github.io/2017/09/23/Node.js_B/&title=《Node.js学习笔记(二)》 — 大蓝鲸&pic=http://yshunda.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yshunda.github.io/2017/09/23/Node.js_B/&title=《Node.js学习笔记(二)》 — 大蓝鲸&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yshunda.github.io/2017/09/23/Node.js_B/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Node.js学习笔记(二)》 — 大蓝鲸&url=http://yshunda.github.io/2017/09/23/Node.js_B/&via=http://yshunda.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yshunda.github.io/2017/09/23/Node.js_B/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQW7jMBAEwPz/015gTwFiC91DOYjJ4smwGUmlQ2fI4ddXPB7/x/fP37/5OSf55ud1Xl35toGBgfGxjMfluJ6T/PqKdI3Jnw0DA+Mcxr0hm7DzcL+eg4GBgTH7nJeGefhiYGBg3MtIlqMr0YyBgXEmI79cshzNN9pmy2MMDIzTGLPGwO98fnt/AwMD488zHuVoG5ZJHLch++Q6GBgYWzOSG8yOX7QtzFm6Fu8JAwPjYxnv2BRrD35dR23UQsDAwNiakTxu+3C/Q8LAwDiTMSsB89qsPWDx9pYABgbGhzBmQdbCkpZnuxh+UuFiYGBsypgFX7vRny90V8pKDAyMExiz8wx5GyAP9/xxMTAwTmAkhVe+Gl5ZN88CHQMD4xzGrGXYLoDbkM2DGwMDY2/GShSuPET+Om6rcDEwMLZgtBte+fvIt/CSgB42BjAwMD6cMTtCkc+fnf5I/goDA+MERl7S5TebFXx5oGNgYJzGyAN0pUk5Wx4PC1MMDIztGG2hdh3HK5trS0fNMDAwjmG0IZgH6+xQRTK/mISBgfGxjNnNVrb7V0Z9FwwMjC0Yj3LMisUW3G7hYWBg7M1ow26lMTl7Ke0mIAYGxq6MWYsx/3W2JdfGMQYGxgmMvBlw14J29h/g5UwMDAyM/NTG6DhXWxo++RUDAwOj3JLLH+W25MTAwDiAkS9iW96w1Gu39jAwMLZmtEvHlYMULS8PcQwMjE0Z/wDA1FvRM6hQuQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.6.13"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

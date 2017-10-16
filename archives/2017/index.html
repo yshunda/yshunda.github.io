@@ -13,8 +13,10 @@
     
     
     
-    <title>Archives: 2017 | 大蓝鲸 | 不积硅步.无以致千里</title>
+    <title>文章归档: 2017 | 大蓝鲸 | 不积硅步.无以致千里</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
@@ -27,8 +29,8 @@
     
         <link rel="alternate" type="application/atom+xml" title="大蓝鲸" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -44,19 +46,47 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="/img/avatar.png">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">大蓝鲸</h5>
-          <a href="mailto:undefined" class="mail">
+          <a href="mailto:zjingshequ@gmail.com" title="zjingshequ@gmail.com" class="mail">zjingshequ@gmail.com</a>
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                首页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-link"></i>
+                读我
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -69,15 +99,29 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis"></div>
+        <div class="flex-col header-title ellipsis">文章归档</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
 <header class="content-header archives-header">
 
     <div class="container fade-scale">
-        <h1 class="title"></h1>
+        <h1 class="title">文章归档</h1>
         <h5 class="subtitle">
             
         </h5>
@@ -168,17 +212,28 @@
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
         <p><span>大蓝鲸 &copy; 2017</span>
             <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">鲁ICP备16004414号</a><br>
                 
                  Power by <a href="http://hexo.io/" target="_blank">Hexo</a>
             </span>
@@ -191,19 +246,87 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yshunda.github.io/archives/2017/&title=大蓝鲸&pic=http://yshunda.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yshunda.github.io/archives/2017/&title=大蓝鲸&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yshunda.github.io/archives/2017/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=大蓝鲸&url=http://yshunda.github.io/archives/2017/&via=http://yshunda.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yshunda.github.io/archives/2017/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB0UlEQVR42u3aQW7jMBAEQP//097rAgsp3UORERalUyDLYjmHAdkzn098ff+67u9cfXr1zs+OCxcXd5n7vb2S5fNvJU9ePYOLi3uee19o/n0mv3O18P37L+/j4uK+npugkw0QLi7u/8dd2RLh4uK+mZssnyycFK9DZzVcXNwFbp5S7vt7S76Li4s74n7Lq22rzMrW5XdxcXGPcPOCkm87kk/z7QsuLu7vcpNWaL7pWTm6FGc1XFzczdz8TjuA1W6D6i0OLi7uo9y8YCWDFLPSlo9t4eLinuG2S87Sy1l08kOhxMXF3cZNSkZehnLErG2Di4v7W9z28JOHpO0/KCpkuLi4R7hFmlIOYOXvjM5quLi427jJNmVH8zWPX4t8FxcX91FuMfpwu6HJA5HZQQgXF/ckNy9Ys+gk/0kPz5Hh4uIuc9sy1Ba4tghGsSkuLu4RbttwzZdpD1TDCS9cXNxl7izWXG+9tBsjXFzck9w2nmgjj1mEOotucXFxn+XOilc7YDEb+boMTHFxcY9wn4oz2sZM3c7BxcV9JbcYslw4dNWpCS4u7su4edMlL2TFyCYuLu42bttqzYPUdkATFxf3Ddy2rMxCjfanPpDv4uLiTrh/AMJhmnnQGA3QAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.6.13"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
